@@ -60,7 +60,7 @@
 .spanCount {
   display: flex;
   justify-content: center;
-  width: 80%;
+  width: 100%;
 }
 .cards {
   display: flex;
