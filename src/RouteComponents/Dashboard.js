@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import ProductCard from "../Components/ProductDetails/ProductCard";
-import AddElements from "../Components/SubAdvertisingElements/AddElements";
+import AddElements from "../Components/Category/Category";
 import ProductReviews from "./ProductReviews";
 
 const Dashboard = ({ location }) => {

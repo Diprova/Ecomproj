@@ -1,3 +1,4 @@
+/* Eyecatcher */
 .eyeCatcher1,
 .eyeCatcher2 {
   display: flex;
@@ -17,7 +18,7 @@
   height: 10vh;
   padding: 15px 20px;
 }
-h1 {
+.eyeCatcher1 h1 {
   margin-left: 20px 60px;
 }
 .spanClass {

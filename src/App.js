@@ -8,6 +8,8 @@ import LocationContent from "./Components/Navbar/LocationContent";
 import AuthenticationContent from "./Components/Navbar/AuthenticationContent";
 
 const App = () => {
+
+  
   const [cartVisibility, setCartVisibility] = useState(false);
   const [locationVisibility, setLocationVisibility] = useState(false);
   const [authenVisibility,setAuthenVisibility]=useState(false);

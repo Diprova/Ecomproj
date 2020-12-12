@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
-import "./AddElements.css";
-import AddCard from "./AddCard";
+import "./category.css";
+import AddCard from "./CategoryCard";
+import Api from "../../Utility/restapi";
 
 const Offers = {
   desktop: {
@@ -21,16 +22,27 @@ const Offers = {
   },
 };
 
-const AddElements = () => {
+const Category = ({ context }) => {
   const [item, setItem] = useState([]);
 
+  const func = async () => {
+    await context.getCategory();
+  };
+
+  // useEffect(() => {
+  //   if (!context.category.length) {
+  //     func();
+  //   }
+  // }, [context.category]);
+
   useEffect(() => {
-    fetch("https://powerful-dawn-74322.herokuapp.com/api/category")
-      .then((response) => response.json())
-      .then((data) => {
-        setItem(data);
-      });
+    context.getCategory();
   }, []);
+  useEffect(() => {
+    if (context.category) {
+      setItem([...context.category]);
+    }
+  }, [context.category]);
 
   return (
     <div className="carousel">
@@ -42,4 +54,4 @@ const AddElements = () => {
     </div>
   );
 };
-export default AddElements;
+export default Category;

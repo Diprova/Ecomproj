@@ -1,19 +1,34 @@
 import React from "react";
-import {  Route, Switch } from "react-router";
+import { Route, Switch } from "react-router";
 import Dashboard from "../RouteComponents/Dashboard";
-import Home from "../RouteComponents/Home";
+import Home from "../Components/Home/Home";
 import RouteProductDetails from "../RouteComponents/RouteProductDetails";
 import "./Route.css";
+import { AppConsumer } from "./ContextApi";
 
-const PrimaryRoute = ({cartVisibility}) => {
+const PrimaryRoute = ({ cartVisibility }) => {
   return (
-    <div className={cartVisibility && "opacity"}>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/routeProductDetails" component={RouteProductDetails}/>
-      </Switch>
-    </div>
+    <AppConsumer>
+      {(context) => (
+        <div className={cartVisibility? "opacity":""}>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={() => <Home context={context} />}
+            />
+            <Route
+              path="/dashboard"
+              component={() => <Dashboard context={context} />}
+            />
+            <Route
+              path="/routeProductDetails"
+              component={() => <RouteProductDetails context={context} />}
+            />
+          </Switch>
+        </div>
+      )}
+    </AppConsumer>
   );
 };
 
