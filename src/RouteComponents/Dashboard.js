@@ -5,6 +5,7 @@ import AddElements from "../Components/SubAdvertisingElements/AddElements";
 import ProductReviews from "./ProductReviews";
 
 const Dashboard = ({ location }) => {
+  // console.log(noofitems);
   console.log(location);
   return (
     <>

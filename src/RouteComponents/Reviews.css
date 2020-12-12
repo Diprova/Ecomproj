@@ -32,10 +32,10 @@
   box-shadow: 3px 3px 3px 0 grey;
   border-radius: 5px;
 }
-.product-slot{
-    display: flex;
-    justify-content: space-between;
-
+.product-slot {
+  margin: 2%;
+  display: flex;
+  justify-content: space-between;
 }
 .product-card {
   display: flex;
