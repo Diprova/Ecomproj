@@ -1,0 +1,56 @@
+.discountlistContainer{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1% 5%;
+  }
+  .discountList {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: whitesmoke;
+    width:98%;
+    border-right: 1px solid grey;
+  }
+  
+  .discountList img {
+    width: 150px;
+    height: 150px;
+    margin: 2%;
+  }
+  .listbtn{
+    display: flex;
+    border: none;
+    background-color: rgb(233, 227, 227);
+    align-items: center;
+    
+  }
+  .cardBoxDetails {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: rgb(240, 235, 184);
+    border: none;
+    width:99.7%;
+   
+  }
+  .cardBox img {
+    width: 80%;
+    height: 50%;
+    margin:  0 5%;
+  }
+  .cardBox {
+    padding: 2% 5%;
+    width: 9.9%;
+    height:123px;
+    border-left: 1px solid grey;
+    border-bottom: 1px solid grey;
+    font-size: 13px;
+   
+  }
+  .cardBox:last-child{
+    border-right: 1px solid grey;
+  }
+  .cardBox:nth-child(1){
+    border-left: none;
+  }
+  .cardBox:nth-child(6){
+    border-left: none;
+  }

@@ -1,0 +1,95 @@
+.cart-content{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    width:400px;
+     height:100vh;
+    background-color:white;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right:0;
+    z-index: 1005;
+    /* transition: all 2s linear ease-in-out; */
+  }
+ /* .active{
+      transform:translateX(0,400px);
+  }
+  .deactive{
+      transform: translateX(400px,0);
+  } */
+
+  
+  .cartcontent-button{
+      display: flex;
+      background-color: black;
+      color:white;
+      justify-content: space-between;
+      width:100%;
+      border: none;
+      height:8vh;
+      padding:4%;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: cursive;
+      cursor: pointer;
+      
+  }
+  
+  .shopping-button{
+    display: flex;
+    justify-content: center;
+    background-color: #db6400;
+    color:white;
+    width:100%;
+    border: none;
+    height:8vh;
+    padding:4%;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: cursive;
+    bottom: 0;
+    cursor: pointer;
+  }
+.location-content{
+  display:flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  box-shadow:0 1px 2px 0 grey;
+  width:400px;
+  height:30vh;
+  text-align: center;
+  margin-left: 90px;
+  background-color: whitesmoke;
+  position: absolute;
+  z-index: 1005;
+}
+.location-button{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.location-button img{
+  width:60px;
+  height:60px;
+  border-radius: 50%;
+  box-shadow: 0 1px 1px 0 grey;
+  cursor: pointer;
+}
+.authentication-content{
+  width:250px;
+  height:30vh;
+  box-shadow:0 1px 2px 0 grey;
+  background-color: whitesmoke;
+  float:right;
+  margin-right: 200px;
+}
+.authentication-button{
+  background-color:#db6400 ;
+  color:white;
+  border:none;
+  padding:10px 30px;
+  margin:8px 40px;
+  border-radius: 5px;
+  font-weight: 600;
+}

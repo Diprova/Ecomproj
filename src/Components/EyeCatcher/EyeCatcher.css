@@ -1,0 +1,25 @@
+.eyeCatcher1,
+.eyeCatcher2 {
+  display: flex;
+  flex-flow: row wrap;
+  background-color: #0e0f11;
+  width: 50%;
+  text-align: center;
+  color: white;
+  margin: 6px 25%;
+}
+.eyeCatcher > div {
+  width: 15%;
+}
+.fruits,
+.truck {
+  width: 10%;
+  height: 10vh;
+  padding: 15px 20px;
+}
+h1 {
+  margin-left: 20px 60px;
+}
+.spanClass {
+  color: yellow;
+}
