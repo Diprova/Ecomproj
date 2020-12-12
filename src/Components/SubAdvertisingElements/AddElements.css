@@ -1,6 +1,7 @@
 .carousel {
-    margin: 0 5%;
+    margin: 0 150px;
     padding: 1%;
+    position: relative;
     background-color: white;
     height: 30% !important;
   }

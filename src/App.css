@@ -55,14 +55,15 @@
   display:flex;
   flex-flow: column wrap;
   justify-content: space-around;
+  position: fixed;
+  top:60px;
   box-shadow:0 1px 2px 0 grey;
   width:400px;
   height:30vh;
   text-align: center;
   margin-left: 90px;
   background-color: whitesmoke;
-  position: absolute;
-  z-index: 1005;
+  z-index: 1010;
 }
 .location-button{
   display: flex;
@@ -77,12 +78,15 @@
   cursor: pointer;
 }
 .authentication-content{
+  position: fixed;
   width:250px;
   height:30vh;
   box-shadow:0 1px 2px 0 grey;
   background-color: whitesmoke;
   float:right;
-  margin-right: 200px;
+  right:190px;
+  z-index: 1010;
+  top:60px;
 }
 .authentication-button{
   background-color:#db6400 ;
