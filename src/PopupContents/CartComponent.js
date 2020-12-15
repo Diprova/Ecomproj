@@ -19,7 +19,7 @@ const CartComponent = ({ context }) => {
   return (
     <div>
       {item.map((element, i) => {
-        <div className="cart-component" key={i}>
+        return(<div className="cart-component" key={i}>
           <div className="cart-componentContent">
             <img src={element.images[0]} alt="img" />
             <h4>{element.productName}</h4>
@@ -29,7 +29,7 @@ const CartComponent = ({ context }) => {
             <span>{count}</span>
             <button>+</button>
           </div>
-        </div>;
+        </div>);
       })}
     </div>
   );
