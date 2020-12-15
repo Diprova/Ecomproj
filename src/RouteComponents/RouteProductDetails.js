@@ -1,21 +1,23 @@
 import React,{useState,useEffect} from 'react';
 import Api from "../Utility/restapi";
-import Cards from "../Components/ProductDetails/Cards";
+import Cards from "../Components/Home/ProductDetails/Cards";
 
 
 
-const RouteProductDetails = () => {
+const RouteProductDetails = ({context}) => {
+  console.log(context);
     const [product, setProduct] = useState([]);
 
-  useEffect(() => {
-    func();
-  }, []);
+    useEffect(() => {
+      setProduct([...context.products]);
+    },[]);
+    useEffect(() => {
+      if (!context.products.length) {
+        context.getProduct();
+      }
+    }, [context.products]);
 
-  const func = async () => {
-    let res = await Api.get("/api/product");
-    console.log(res);
-    setProduct(res);
-  };
+
     return (
         <div className="product-slot">
         <div className="category">

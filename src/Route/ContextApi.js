@@ -6,6 +6,7 @@ export const AppContext = React.createContext();
 const initialState = {
   cartVisibility: false,
   isAuthenticated: false,
+  locationVisibility: false,
   user: {},
   location: " ",
   category: [],
@@ -21,9 +22,14 @@ export class ContextApi extends Component {
       location: "kolkata",
       getCategory: async () => {
         let res = await Api.get("/api/category");
-        console.log("hfq,..",res);
         this.setState({ category: [...res] });
       },
+      getProduct: async () => {
+        let resp = await Api.get("/api/product");
+        this.setState({ products: [...resp] });
+        this.setState({cart:[...resp]})
+      },
+      
     };
   }
   render() {

@@ -1,17 +1,15 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import ProductCard from "../Components/ProductDetails/ProductCard";
-import AddElements from "../Components/Category/Category";
+import ProductCard from "../Components/Home/ProductDetails/ProductCard";
+import Category from "../Components/Category/Category";
 import ProductReviews from "./ProductReviews";
 
-const Dashboard = ({ location }) => {
-  // console.log(noofitems);
-  console.log(location);
+const Dashboard = ({ location, context }) => {
   return (
     <>
-     {location.state && <ProductReviews itemDetails={location.state} />} 
-      <ProductCard />
-      <AddElements />
+      {location.state && <ProductReviews itemDetails={location.state} />}
+      <ProductCard context={context} />
+      <Category context={context} />
     </>
   );
 };

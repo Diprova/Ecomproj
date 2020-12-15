@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import "./Offers.css";
+import "./home.css";
 import maggi from "../../assets/maggi.jpg";
 import aata from "../../assets/AashirvaadAata.jpg";
 import tide from "../../assets/Tide.jpg";

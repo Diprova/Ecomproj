@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CardBox from "./CardBox";
-import Api from "../../Utility/restapi";
+import Api from "../../../Utility/restapi";
 
 const DiscountCard = () => {
   const [cardItem, setCardItem] = useState([]);

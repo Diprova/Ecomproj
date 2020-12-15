@@ -1,6 +1,6 @@
 import React from 'react'
-import kolkata from "../../assets/kolkata.png";
-import bangalore from "../../assets/bangalore.jpg";
+import kolkata from "../assets/kolkata.png";
+import bangalore from "../assets/bangalore.jpg";
 
 const LocationContent = ({setLocationVisibility}) => {
     return (

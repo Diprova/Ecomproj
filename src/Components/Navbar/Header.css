@@ -1,121 +1,117 @@
 .header {
-    display: flex;
-    flex-flow: row wrap;
-    background-color: #222831;
-    width:100%;
-    color: white;
-    white-space: nowrap;
-    justify-content: space-around;
-    font-size: 13px;
-    position: sticky;
-    top:0;
-    overflow: auto;
-    z-index: 1001;
-  }
-  
-  .location {
-    display: flex;
-    color: white;
-    padding-top: 20px;
-  }
-  .location:hover{
-    background-color: #393e46;
-  }
-  .element{
-    margin: 0;
-    width: 20%;
-  }
-  .element::after {
-    content: " ";
-    position: relative;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 7px solid white;
-    margin-left: 9px;
-  }
-  
-  .wrap {
-    width:50%;
-    padding: 1%;
-    display: flex;
-    flex-flow: row wrap;
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  input {
-    float: left;
-    width: 85%;
-    height: 5vh;
-    border: none;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-    
-  }
-  .searchButton{
-    float:right;
-    width: 8%;
-    height: 5vh;
-    cursor: pointer;
-    font-size: 20px;
-    background-color: #f4f4f2;
-    border: none;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-    outline: none;
-  }
-  .image {
-    width: 5%;
-    height: 8vh;
-    padding: 6px 15px 4px 10px;
-    border-right: 1px solid #495464;
-    cursor: pointer;
-  }
-  .image:hover {
-    background-color: #393e46;
-  }
-  .authentication {
-    padding: 1%;
-    border-right: 1px solid #495464;
-  }
-  .authentication:hover{
-    background-color: #393e46;
-  }
-  .signUp,.account{
-    margin: 0;
-    width: 20%;
-  }
-  .signUp::after {
-    content: " ";
-    position: relative;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 7px solid white;
-    margin: 3px 15px;
-  }
-  .cart {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    margin: 0px 40px 0px 0px;
-    cursor: pointer;
-  }
-  .cart:hover{
-    background-color: #393e46;
-  }
-  .cartIcon{
-    padding-right:20px;
-  }
-  .opacity{
-    opacity: 0.5;
-    /* background-color: black; */
-    /* background-blend-mode: darken;  */
+  display: flex;
+  flex-flow: row wrap;
+  background-color: #222831;
+  width: 100%;
+  color: white;
+  white-space: nowrap;
+  justify-content: space-around;
+  font-size: 13px;
+  position: sticky;
+  top: 0;
+  overflow: auto;
+  z-index: 1001;
 }
 
- 
+.location {
+  display: flex;
+  color: white;
+  padding-top: 20px;
+}
+.location:hover {
+  background-color: #393e46;
+}
+.element {
+  margin: 0;
+  width: 20%;
+}
+.element::after {
+  content: " ";
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid white;
+  margin-left: 9px;
+}
+
+.wrap {
+  width: 50%;
+  padding: 1%;
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+}
+input {
+  float: left;
+  width: 85%;
+  height: 5vh;
+  border: none;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.searchButton {
+  float: right;
+  width: 8%;
+  height: 5vh;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #f4f4f2;
+  border: none;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  outline: none;
+}
+.image {
+  width: 5%;
+  height: 8vh;
+  padding: 6px 15px 4px 10px;
+  border-right: 1px solid #495464;
+  cursor: pointer;
+}
+.image:hover {
+  background-color: #393e46;
+}
+.authentication {
+  padding: 1%;
+  border-right: 1px solid #495464;
+}
+.authentication:hover {
+  background-color: #393e46;
+}
+.signUp,
+.account {
+  margin: 0;
+  width: 20%;
+}
+.signUp::after {
+  content: " ";
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid white;
+  margin: 3px 15px;
+}
+.cart {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 0px 40px 0px 0px;
+  cursor: pointer;
+}
+.cart:hover {
+  background-color: #393e46;
+}
+.cartIcon {
+  padding-right: 20px;
+}
+.opacity {
+  opacity: 0.5;
+}

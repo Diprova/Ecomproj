@@ -2,16 +2,8 @@ import React from "react";
 import "./Reviews.css";
 
 const ProductReviews = ({ itemDetails }) => {
-  const {
-    unitPrice,
-    images,
-    unitType,
-    category,
-    unitStartPoint,
-  } = itemDetails;
+  const { unitPrice, images, unitType, category, unitStartPoint } = itemDetails;
 
-  console.log(itemDetails);
-  
   return (
     <div className="reviews">
       <img src={images[0]} alt="images" />

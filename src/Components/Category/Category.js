@@ -25,22 +25,12 @@ const Offers = {
 const Category = ({ context }) => {
   const [item, setItem] = useState([]);
 
-  const func = async () => {
-    await context.getCategory();
-  };
-
-  // useEffect(() => {
-  //   if (!context.category.length) {
-  //     func();
-  //   }
-  // }, [context.category]);
-
   useEffect(() => {
-    context.getCategory();
+    setItem([...context.category]);
   }, []);
   useEffect(() => {
-    if (context.category) {
-      setItem([...context.category]);
+    if (!context.category.length) {
+      context.getCategory();
     }
   }, [context.category]);
 

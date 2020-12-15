@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Cards from "./Cards";
-import "./ProductDetails.css";
-import Api from "../../Utility/restapi";
+import "../home.css";
 import {useHistory} from "react-router-dom";
 
-const ProductCard = () => {
+const ProductCard = ({context}) => {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    func();
-  }, []);
-
-  const func = async () => {
-    let res = await Api.get("/api/product");
-    console.log(res);
-    setProduct(res);
-  };
-
+    setProduct([...context.products]);
+  },[]);
+  useEffect(() => {
+    if (!context.products.length) {
+      context.getProduct();
+    }
+  }, [context.products]);
+ 
   let history = useHistory();
 
   return (

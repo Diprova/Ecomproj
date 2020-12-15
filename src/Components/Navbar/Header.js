@@ -4,7 +4,7 @@ import Location from "./Location";
 import Search from "./Search";
 import Authentication from "./Authentication";
 import MyCart from "./MyCart";
-import "./Header.css";
+import "./header.css";
 
 const Header = ({setCartVisibility,cartVisibility,setLocationVisibility,setAuthenVisibility}) => {
   return (

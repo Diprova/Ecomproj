@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import DiscountList from "./DiscountList";
-import "./Discount.css";
-import Api from "../../Utility/restapi";
+import "../home.css";
+import Api from "../../../Utility/restapi";
 
-const DiscountProducts = () => {
+const DiscountProducts = ({context}) => {
   const [discountPrdct, setDiscoutPrdct] = useState([]);
 
-  useEffect(() => {
-    func();
-  }, []);
 
-  const func = async () => {
-    let res = await Api.get("/api/category");
-    console.log(res);
-    setDiscoutPrdct(res);
-  };
+  useEffect(() => {
+    setDiscoutPrdct([...context.category]);
+  }, []);
+  useEffect(() => {
+    if (!context.category.length) {
+      context.getCategory();
+    }
+  }, [context.category]);
 
 
   return (
