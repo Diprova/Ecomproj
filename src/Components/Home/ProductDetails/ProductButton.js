@@ -1,33 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const ProductButton = () => {
-  const [count, setCount] = useState(0);
+const ProductButton = ({ context, item }) => {
+  const [count, setCount] = useState(item.count);
 
-  const handleIncrmntBtn = () => {
-    if (count >= 0) {
-      return setCount(count + 1);
-    }
+  const increment = () => {
+    return setCount(
+      context.increment(
+        item._id,
+        count === 1 && context.addToCart(item._id),
+        context.addTotal(item._id)
+      )
+    );
   };
 
-  const handleDcrmntBtn = () => {
-    if (count >= 1) {
-      return setCount(count - 1);
-    }
+  const decrement = () => {
+    return (
+      setCount(context.decrement(item._id)),
+      count === 1 && context.removeFromCart(item._id),
+      context.reduceFromTotal(item._id)
+    );
   };
 
   const addbtn = (
-    <button className="addbtn" onClick={handleIncrmntBtn}>
+    <button className="addbtn" onClick={increment}>
       Add
     </button>
   );
 
   const cntrlbtn = (
     <div className="cntrlbtn">
-      <button className="dcrmntbtn" onClick={handleDcrmntBtn}>
+      <button className="dcrmntbtn" onClick={decrement}>
         -
       </button>
       <span className="spanCount">{count}</span>
-      <button className="incrmntbtn" onClick={handleIncrmntBtn}>
+      <button className="incrmntbtn" onClick={increment}>
         +
       </button>
     </div>

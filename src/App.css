@@ -96,6 +96,7 @@
   display: flex;
   flex-flow: column wrap;
   background-color: white;
+  border-bottom: 1px solid grey;
 }
 .cart-componentContent {
   display: flex;
@@ -105,4 +106,27 @@
   width: 50px;
   height: 50px;
   margin: 10px;
+}
+.cart-componentButton{
+  margin-left: 60px;
+}
+.cart-componentButton button{
+  justify-content: space-around;
+  background: transparent;
+  border-radius: 50%;
+  border: 1px solid #db6400;
+  color:#db6400;
+  margin:5px;
+}
+.price-details{
+  color:grey;
+  font-size: 12px;
+  margin-left: 30px;
+}
+.cart-total{
+  background-color: white;
+  height:20vh;
+  border-bottom: 1px solid grey;
+  margin-bottom: 12px;
+  padding-left: 20px;
 }

@@ -3,7 +3,7 @@ import ProductButton from "./ProductButton";
 import { useHistory } from "react-router-dom";
 // import Dashboard from "../../RouteComponents/Dashboard";
 
-const Cards = ({ item }) => {
+const Cards = ({ item, context }) => {
   const { productName, images, unitPrice, unitType, unitStartPoint } = item;
 
   let history = useHistory();
@@ -30,7 +30,7 @@ const Cards = ({ item }) => {
           </li>
         </ul>
       </div>
-      <ProductButton />
+      <ProductButton context={context} item={item} />
     </div>
   );
 };

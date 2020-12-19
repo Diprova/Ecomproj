@@ -12,6 +12,9 @@ const initialState = {
   category: [],
   cart: [],
   products: [],
+  updatedProducts: [],
+  count: 0,
+  total: 0,
 };
 
 export class ContextApi extends Component {
@@ -26,10 +29,95 @@ export class ContextApi extends Component {
       },
       getProduct: async () => {
         let resp = await Api.get("/api/product");
-        this.setState({ products: [...resp] });
-        this.setState({cart:[...resp]})
+        this.setState({ products: [...resp], updatedProducts: [...resp] });
       },
-      
+
+      getItem: (id) => {
+        const selectedProduct = this.state.updatedProducts.findIndex(
+          (ele) => ele._id === id
+        );
+        return selectedProduct;
+      },
+
+      increment: (id) => {
+        if (this.state.updatedProducts) {
+          const productIndex = this.state.getItem(id);
+          const product = this.state.updatedProducts[productIndex];
+          product.count = product.count ? product.count + 1 : 1;
+
+          this.setState({
+            updatedProducts: [
+              ...this.state.updatedProducts.slice(0, productIndex),
+              product,
+              ...this.state.updatedProducts.slice(productIndex + 1),
+            ],
+          });
+        }
+      },
+
+      decrement: (id) => {
+        if (this.state.updatedProducts) {
+          const productIndex = this.state.getItem(id);
+          const product = this.state.updatedProducts[productIndex];
+          product.count = product.count ? product.count - 1 : 1;
+
+          this.setState({
+            updatedProducts: [
+              ...this.state.updatedProducts.slice(0, productIndex),
+              product,
+              ...this.state.updatedProducts.slice(productIndex + 1),
+            ],
+          });
+        }
+      },
+      addToCart: (id) => {
+        if (this.state.updatedProducts) {
+          const productIndex = this.state.getItem(id);
+          const product = this.state.updatedProducts[productIndex];
+          const cart = this.state.cart;
+          cart.push(product);
+          this.setState({ cart: cart });
+        }
+      },
+      removeFromCart: (id) => {
+        if (this.state.updatedProducts) {
+          const productIndex = this.state.getItem(id);
+          const product = this.state.updatedProducts[productIndex];
+          const cart = this.state.cart;
+          cart.pop(product);
+          this.setState({ cart: cart });
+        }
+      },
+      addTotal: (id) => {
+        if (this.state.updatedProducts) {
+          const productIndex = this.state.getItem(id);
+          const product = this.state.updatedProducts[productIndex];
+          product.total = product.count * product.unitPrice;
+
+          this.setState({
+            updatedProducts: [
+              ...this.state.updatedProducts.slice(0, productIndex),
+              product,
+              ...this.state.updatedProducts.slice(productIndex + 1),
+            ],
+          });
+        }
+      },
+      reduceFromTotal:(id)=>{
+        if (this.state.updatedProducts) {
+          const productIndex = this.state.getItem(id);
+          const product = this.state.updatedProducts[productIndex];
+          product.total = (product.count-1) * product.unitPrice;
+
+          this.setState({
+            updatedProducts: [
+              ...this.state.updatedProducts.slice(0, productIndex),
+              product,
+              ...this.state.updatedProducts.slice(productIndex + 1),
+            ],
+          });
+        }
+      }
     };
   }
   render() {

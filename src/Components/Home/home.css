@@ -99,8 +99,7 @@ h6 {
   top: 0;
 }
 .cardsContent img:hover {
-  top: -10px;
-  box-shadow: 0 5px 10px 0px grey;
+  top: -5px;
 }
 .cardsContent {
   margin: 2%;

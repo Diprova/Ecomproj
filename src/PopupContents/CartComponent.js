@@ -1,38 +1,48 @@
 import React, { useState, useEffect } from "react";
-import grofers from "../assets/grofersLogo.png";
 import "../App.css";
 
 const CartComponent = ({ context }) => {
-  const [item, setItem] = useState([]);
-  const [count, setCount] = useState(1);
-
-  useEffect(() => {
-    setItem([...context.cart]);
-  }, []);
-  useEffect(() => {
-    if (!context.cart.length) {
-      context.getProduct();
-    }
-  }, [context.cart]);
-  console.log(item);
+  const cart = context.cart;
 
   return (
     <div>
-      {item.map((element, i) => {
-        return(<div className="cart-component" key={i}>
-          <div className="cart-componentContent">
-            <img src={element.images[0]} alt="img" />
-            <h4>{element.productName}</h4>
+      {cart.map((item) => {
+        return (
+          <div className="cart-component" key={item._id}>
+            <div className="cart-componentContent">
+              <img src={item.images[0]} alt="image" />
+              <h4>{item.productName}</h4>
+            </div>
+            <div className="cart-componentButton">
+              <button
+                onClick={() =>
+                  context.decrement(
+                    item._id,
+                    item.count === 1 && context.removeFromCart(item._id),
+                    context.reduceFromTotal(item._id)
+                  )
+                }
+              >
+                -
+              </button>
+              <span>{item.count}</span>
+              <button
+                onClick={() =>
+                  context.increment(item._id, context.addTotal(item._id))
+                }
+              >
+                +
+              </button>
+              <span className="price-details">
+                {item.unitPrice}/{item.unitStartPoint}
+                {item.unitType}
+              </span>
+              <h4>Total : {item.total}</h4>
+            </div>
           </div>
-          <div className="cart-componentButton">
-            <button>-</button>
-            <span>{count}</span>
-            <button>+</button>
-          </div>
-        </div>);
+        );
       })}
     </div>
   );
 };
-
 export default CartComponent;
