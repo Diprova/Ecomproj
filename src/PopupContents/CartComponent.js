@@ -17,7 +17,7 @@ const CartComponent = ({ context }) => {
               <button
                 onClick={() => (
                   context.decrement(item._id),
-                  item.count === 1 && context.removeFromCart(item._id),
+                  item.count === 0 && context.removeFromCart(item._id),
                   context.reduceFromTotal(item._id)
                 )}
               >
