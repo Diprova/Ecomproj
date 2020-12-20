@@ -74,9 +74,11 @@ export class ContextApi extends Component {
         if (this.state.updatedProducts) {
           const productIndex = this.state.getItem(id);
           const product = this.state.updatedProducts[productIndex];
-          const cart = this.state.cart;
+          let cart = [...this.state.cart];
+          if(product.count===1){
           cart.push(product);
-          this.setState({ cart: cart });
+          this.setState({ cart });
+          } 
         }
       },
       removeFromCart: (id) => {
@@ -103,11 +105,11 @@ export class ContextApi extends Component {
           });
         }
       },
-      reduceFromTotal:(id)=>{
+      reduceFromTotal: (id) => {
         if (this.state.updatedProducts) {
           const productIndex = this.state.getItem(id);
           const product = this.state.updatedProducts[productIndex];
-          product.total = (product.count-1) * product.unitPrice;
+          product.total = product.count * product.unitPrice;
 
           this.setState({
             updatedProducts: [
@@ -117,7 +119,7 @@ export class ContextApi extends Component {
             ],
           });
         }
-      }
+      },
     };
   }
   render() {

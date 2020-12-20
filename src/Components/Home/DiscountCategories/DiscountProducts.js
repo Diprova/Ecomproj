@@ -19,6 +19,7 @@ const DiscountProducts = ({context}) => {
 
   return (
     <div>
+    <h1>Best Offers on Products</h1>
       {discountPrdct.map((item1) => {
         return <DiscountList key={item1._id} item={item1} />;
       })}

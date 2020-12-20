@@ -4,12 +4,10 @@ const ProductButton = ({ context, item }) => {
   const [count, setCount] = useState(item.count);
 
   const increment = () => {
-    return setCount(
-      context.increment(
-        item._id,
-        count === 1 && context.addToCart(item._id),
-        context.addTotal(item._id)
-      )
+    return (
+      setCount(context.increment(item._id)),
+      context.addToCart(item._id),
+      context.addTotal(item._id)
     );
   };
 

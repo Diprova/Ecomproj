@@ -5,7 +5,7 @@ const CartComponent = ({ context }) => {
   const cart = context.cart;
 
   return (
-    <div>
+    <div className="cart-block">
       {cart.map((item) => {
         return (
           <div className="cart-component" key={item._id}>
@@ -15,21 +15,19 @@ const CartComponent = ({ context }) => {
             </div>
             <div className="cart-componentButton">
               <button
-                onClick={() =>
-                  context.decrement(
-                    item._id,
-                    item.count === 1 && context.removeFromCart(item._id),
-                    context.reduceFromTotal(item._id)
-                  )
-                }
+                onClick={() => (
+                  context.decrement(item._id),
+                  item.count === 1 && context.removeFromCart(item._id),
+                  context.reduceFromTotal(item._id)
+                )}
               >
                 -
               </button>
               <span>{item.count}</span>
               <button
-                onClick={() =>
-                  context.increment(item._id, context.addTotal(item._id))
-                }
+                onClick={() => (
+                  context.increment(item._id), context.addTotal(item._id)
+                )}
               >
                 +
               </button>

@@ -39,7 +39,7 @@ module.exports = function (env) {
             },
           ],
         },
-        {test: /\.(png|svg|jpg|jpeg|gif|woff|ttf|eot)$/i,
+        {test: /\.(png|svg|jpg|jpeg|gif|woff|ttf|eot|webp)$/i,
            use: [{ loader: "file-loader",options:'[name].[ext]' }] },
       ],
     },
