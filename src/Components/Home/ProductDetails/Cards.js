@@ -29,8 +29,10 @@ const Cards = ({ item, context }) => {
             {unitType}
           </li>
         </ul>
+
+        <ProductButton context={context} item={item} />
       </div>
-      <ProductButton context={context} item={item} />
+      <div className="emergency-update">v</div>
     </div>
   );
 };

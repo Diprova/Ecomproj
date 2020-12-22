@@ -20,9 +20,12 @@ const ProductButton = ({ context, item }) => {
   };
 
   const addbtn = (
-    <button className="addbtn" onClick={increment}>
-      Add
-    </button>
+    <div>
+      <button className="addbtn" onClick={increment}>
+        Add
+      </button>
+      <button className="span-btn" onClick={increment}>+</button>
+    </div>
   );
 
   const cntrlbtn = (

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import DiscountList from "./DiscountList";
-import "../home.css";
-import Api from "../../../Utility/restapi";
 
 const DiscountProducts = ({context}) => {
   const [discountPrdct, setDiscoutPrdct] = useState([]);

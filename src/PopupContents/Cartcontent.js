@@ -3,7 +3,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import CartComponent from "./CartComponent";
 import emptyCart from "../assets/empty-cart.webp";
 
-const Cartcontent = ({ setCartVisibility, cartVisibility, context }) => {
+const Cartcontent = ({ setCartVisibility, context }) => {
   // const [subtotal, setSubtotal] = useState(
   //   context.cart.reduce((n, { total }) => n + total+49, 0)
   // );

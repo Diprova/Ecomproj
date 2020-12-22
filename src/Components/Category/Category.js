@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
-import "./category.css";
 import AddCard from "./CategoryCard";
-import Api from "../../Utility/restapi";
 
 const Offers = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 7,
+    items: 8,
     slidesToSlide: 3, // optional, default to 1.
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 4,
+    items: 5,
     slidesToSlide: 2, // optional, default to 1.
   },
   mobile: {

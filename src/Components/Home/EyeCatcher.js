@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./home.css";
 import fruitsnveggies from "../../assets/fruitsnveg.png";
 import truck from "../../assets/truck.png";
 

@@ -4,11 +4,7 @@ import Api from "../Utility/restapi";
 export const AppContext = React.createContext();
 
 const initialState = {
-  cartVisibility: false,
-  isAuthenticated: false,
-  locationVisibility: false,
   user: {},
-  location: " ",
   category: [],
   cart: [],
   products: [],

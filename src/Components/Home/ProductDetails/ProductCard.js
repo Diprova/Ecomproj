@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Cards from "./Cards";
-import "../home.css";
 import { useHistory } from "react-router-dom";
 
 const ProductCard = ({ context }) => {
@@ -19,7 +18,7 @@ const ProductCard = ({ context }) => {
   return (
     <div className="product-details">
       <div className="product-link">
-        <h2>Fruits & Veggies</h2>
+        <span>Fresh Fruits & Veggies</span>
         <button
           className="see-all-btn"
           onClick={() => history.push({ pathname: "/routeProductDetails" })}
@@ -31,6 +30,13 @@ const ProductCard = ({ context }) => {
         {product.map((item) => {
           return <Cards key={item._id} item={item} context={context} />;
         })}
+        <div className="seeAll-card">
+        <button
+        className="see-all-btn"
+        onClick={() => history.push({ pathname: "/routeProductDetails" })}
+      >
+        See all
+      </button></div>
       </div>
     </div>
   );

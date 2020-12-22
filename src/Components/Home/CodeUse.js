@@ -2,7 +2,6 @@ import React from "react";
 import Slider from "infinite-react-carousel";
 import grofersPamphlet from "../../assets/GrofersPamphlet.jpg";
 import grofersCode from "../../assets/grofersCode.jpg";
-import "./home.css";
 
 const CodeUse = () => {
   return (

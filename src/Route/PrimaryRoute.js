@@ -6,11 +6,11 @@ import RouteProductDetails from "../RouteComponents/RouteProductDetails";
 import "./Route.css";
 import { AppConsumer } from "./ContextApi";
 
-const PrimaryRoute = ({ cartVisibility }) => {
+const PrimaryRoute = () => {
   return (
     <AppConsumer>
       {(context) => (
-        <div className={cartVisibility? "opacity":""}>
+        <div>
           <Switch>
             <Route
               exact
