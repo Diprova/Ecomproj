@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { BsArrowDown } from "react-icons/bs";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import DiscountCard from "./DiscountCard";
-import { BsArrowUp } from "react-icons/bs";
+import { MdKeyboardArrowUp } from "react-icons/md";
 
 const DiscountList = ({ item }) => {
   const [btnState, setbtnState] = useState(true);
-  const { image, title } = item;
+  const { images, productName, description } = item;
+  console.log(item);
 
   const handleClickOn = () => {
     return setbtnState(!btnState);
@@ -13,17 +14,27 @@ const DiscountList = ({ item }) => {
 
   return (
     <div className="discountlistContainer">
-      <div className="discountList">
-        <img src={image} alt="images" />
+      <div
+        className={btnState ? "discountList inactive" : "discountList active"}
+      >
+        <img src={images[0]} alt="images" />
         <div className="listDetails">
-          <p>{title}</p>
+          <p>{productName}</p>
+          <p>{description}</p>
         </div>
       </div>
-      <div className="listbtn" onClick={handleClickOn}>
-        {btnState ? <BsArrowDown size={21} /> : <BsArrowUp size={21} />}
+      <div
+        className={btnState ? "listbtn inactive" : "listbtn active"}
+        onClick={handleClickOn}
+      >
+        {btnState ? (
+          <MdKeyboardArrowDown size={35} />
+        ) : (
+          <MdKeyboardArrowUp size={35} />
+        )}
+        </div>
+        {btnState ? null : <DiscountCard />}
       </div>
-      {btnState ? null : <DiscountCard />}
-    </div>
   );
 };
 export default DiscountList;

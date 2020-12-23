@@ -542,23 +542,37 @@ h6 {
 }
 /* Code Carousel/Code Use */
 .codeUse {
-  margin: 2% 5%;
+  width:1292px;
+  margin:20px 40px;
+  background-color: white;
 }
 .codeUse img {
-  width: 100%;
+  width: 900px;
+  margin-left:180px;
 }
 /* Discount Categories */
 .discountlistContainer {
   display: flex;
   flex-flow: row wrap;
-  margin: 1% 5%;
+  width:1292px;
+  margin:20px 40px;
+  background-color: rgb(245, 239, 183);
 }
+
 .discountList {
   display: flex;
   flex-flow: row wrap;
-  background-color: whitesmoke;
-  width: 98%;
-  border-right: 1px solid grey;
+  width:1250px;
+  background-color: white;
+  border-right: 1px solid rgb(236, 224, 224);
+}
+
+.inactive{
+background-color: white;
+}
+.active{
+  background-color: rgb(245, 239, 183) ;
+  border-right:none;
 }
 
 .discountList img {
@@ -568,32 +582,39 @@ h6 {
 }
 .listbtn {
   display: flex;
+  justify-content: center;
   border: none;
-  background-color: rgb(233, 227, 227);
-  align-items: center;
+  color: #db6400;
+    align-items: center;
+  width:40px;
 }
+
 .cardBoxDetails {
   display: flex;
   flex-flow: row wrap;
-  background-color: rgb(240, 235, 184);
+  margin:10px 10px;
+  background-color:white;
   border: none;
-  width: 99.7%;
+  box-shadow: 0 0 1px grey;
 }
 .cardBox img {
-  width: 80%;
-  height: 50%;
-  margin: 0 5%;
+  width: 80px;
+  height: 80px;
+  margin: 10px 70px;
 }
 .cardBox {
-  padding: 2% 5%;
-  width: 9.9%;
-  height: 123px;
-  border-left: 1px solid grey;
-  border-bottom: 1px solid grey;
+ display: flex;
+ flex-flow: column wrap;
+ align-items: center;
+  width: 253px;
+  height: 200px;
+  border-left: 1px solid rgb(214, 205, 205);
+  border-bottom: 1px solid rgb(212, 209, 209);
   font-size: 13px;
 }
 .cardBox:last-child {
-  border-right: 1px solid grey;
+  border-right: 1px solid  rgb(214, 206, 206);
+  border-bottom: none;
 }
 .cardBox:nth-child(1) {
   border-left: none;

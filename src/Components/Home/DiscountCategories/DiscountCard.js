@@ -16,10 +16,12 @@ const DiscountCard = () => {
   };
 
   return (
+    <div className="cardBox-container">
     <div className="cardBoxDetails">
       {cardItem.map((noofitems) => {
         return <CardBox noofitems={noofitems} />;
       })}
+    </div>
     </div>
   );
 };

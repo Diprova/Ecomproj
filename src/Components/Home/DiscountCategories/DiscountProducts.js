@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from "react";
 import DiscountList from "./DiscountList";
 
-const DiscountProducts = ({context}) => {
+const DiscountProducts = ({ context }) => {
   const [discountPrdct, setDiscoutPrdct] = useState([]);
 
-
   useEffect(() => {
-    setDiscoutPrdct([...context.category]);
+    setDiscoutPrdct([...context.products]);
   }, []);
   useEffect(() => {
-    if (!context.category.length) {
-      context.getCategory();
+    if (!context.products.length) {
+      context.getProduct();
     }
-  }, [context.category]);
-
+  }, [context.products]);
 
   return (
     <div>
-    <h1>Best Offers on Products</h1>
       {discountPrdct.map((item1) => {
         return <DiscountList key={item1._id} item={item1} />;
       })}
