@@ -1,12 +1,16 @@
-import React from "react";
+import React,{useEffect} from "react";
 import ProductButton from "./ProductButton";
 import { useHistory } from "react-router-dom";
-// import Dashboard from "../../RouteComponents/Dashboard";
 
 const Cards = ({ item, context }) => {
   const { productName, images, unitPrice, unitType, unitStartPoint } = item;
-
   let history = useHistory();
+useEffect(()=>{
+  item.count
+},[])
+  useEffect(()=>{
+     item.count
+  },[item.count])
 
   return (
     <div className="cards">

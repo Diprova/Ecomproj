@@ -6,7 +6,6 @@ import { MdKeyboardArrowUp } from "react-icons/md";
 const DiscountList = ({ item }) => {
   const [btnState, setbtnState] = useState(true);
   const { images, productName, description } = item;
-  console.log(item);
 
   const handleClickOn = () => {
     return setbtnState(!btnState);

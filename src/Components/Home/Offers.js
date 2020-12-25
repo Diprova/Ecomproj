@@ -1,5 +1,4 @@
 import React from "react";
-import "react-multi-carousel/lib/styles.css";
 import maggi from "../../assets/maggi.jpg";
 import aata from "../../assets/AashirvaadAata.jpg";
 import tide from "../../assets/Tide.jpg";

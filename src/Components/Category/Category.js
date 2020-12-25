@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
+import 'react-multi-carousel/lib/styles.css';
 import AddCard from "./CategoryCard";
 
 const Offers = {
@@ -35,8 +36,8 @@ const Category = ({ context }) => {
   return (
     <div className="carousel">
       <Carousel responsive={Offers}>
-        {item.map((element, index) => (
-          <AddCard key={index} element={element} />
+        {item.map((element) => (
+          <AddCard key={element._id} element={element} />
         ))}
       </Carousel>
     </div>

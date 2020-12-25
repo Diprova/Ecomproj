@@ -6,6 +6,7 @@ export const AppContext = React.createContext();
 const initialState = {
   user: {},
   category: [],
+  updatedCategory:[],
   cart: [],
   products: [],
   updatedProducts: [],
@@ -21,7 +22,7 @@ export class ContextApi extends Component {
       location: "kolkata",
       getCategory: async () => {
         let res = await Api.get("/api/category");
-        this.setState({ category: [...res] });
+        this.setState({ category: [...res],updatedCategory:[...res] });
       },
       getProduct: async () => {
         let resp = await Api.get("/api/product");

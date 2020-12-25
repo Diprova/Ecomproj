@@ -31,12 +31,13 @@ const ProductCard = ({ context }) => {
           return <Cards key={item._id} item={item} context={context} />;
         })}
         <div className="seeAll-card">
-        <button
-        className="see-all-btn"
-        onClick={() => history.push({ pathname: "/routeProductDetails" })}
-      >
-        See all
-      </button></div>
+          <button
+            className="see-all-btn"
+            onClick={() => history.push({ pathname: "/routeProductDetails" })}
+          >
+            See all
+          </button>
+        </div>
       </div>
     </div>
   );
