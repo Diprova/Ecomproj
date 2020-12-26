@@ -6,7 +6,7 @@ export const AppContext = React.createContext();
 const initialState = {
   user: {},
   category: [],
-  updatedCategory:[],
+  updatedCategory: [],
   cart: [],
   products: [],
   updatedProducts: [],
@@ -22,7 +22,7 @@ export class ContextApi extends Component {
       location: "kolkata",
       getCategory: async () => {
         let res = await Api.get("/api/category");
-        this.setState({ category: [...res],updatedCategory:[...res] });
+        this.setState({ category: [...res], updatedCategory: [...res] });
       },
       getProduct: async () => {
         let resp = await Api.get("/api/product");
@@ -37,19 +37,17 @@ export class ContextApi extends Component {
       },
 
       increment: (id) => {
-        if (this.state.updatedProducts) {
-          const productIndex = this.state.getItem(id);
-          const product = this.state.updatedProducts[productIndex];
-          product.count = product.count ? product.count + 1 : 1;
+        const productIndex = this.state.getItem(id);
+        const product = this.state.updatedProducts[productIndex];
+        product.count = product.count ? product.count + 1 : 1;
 
-          this.setState({
-            updatedProducts: [
-              ...this.state.updatedProducts.slice(0, productIndex),
-              product,
-              ...this.state.updatedProducts.slice(productIndex + 1),
-            ],
-          });
-        }
+        this.setState({
+          updatedProducts: [
+            ...this.state.updatedProducts.slice(0, productIndex),
+            product,
+            ...this.state.updatedProducts.slice(productIndex + 1),
+          ],
+        });
       },
 
       decrement: (id) => {
@@ -72,10 +70,10 @@ export class ContextApi extends Component {
           const productIndex = this.state.getItem(id);
           const product = this.state.updatedProducts[productIndex];
           let cart = [...this.state.cart];
-          if(product.count===1){
-          cart.push(product);
-          this.setState({ cart });
-          } 
+          if (product.count === 1) {
+            cart.push(product);
+            this.setState({ cart });
+          }
         }
       },
       removeFromCart: (id) => {

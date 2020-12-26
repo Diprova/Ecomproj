@@ -1,45 +1,31 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-const ProductReviews = ({ itemId, context }) => {
+const ProductReviews = ({ itemId, context, item }) => {
   const [itemDetails, setitemDetails] = useState({});
 
   useEffect(() => {
-    let x=context.products.find((e) => e._id === itemId);
-    console.log(x);
-    setitemDetails({...x});
+    setitemDetails(context.products.find((e) => e._id === itemId));
   }, []);
+
+  useEffect(() => {
+    if (context.products._id !== itemId) {
+      setitemDetails(context.products.find((e) => e._id === itemId));
+    }
+  }, [itemId]);
   console.log(itemDetails);
-  console.log(itemId,context.products[0]._id);
-
-  // useEffect(() => {
-
-  // }, [input])
-
-  // const {
-  //   unitPrice,
-  //   images,
-  //   unitType,
-  //   productName,
-  //   unitStartPoint,
-  //   rating,
-  //   description,
-  //   type,
-  //   _id,
-  //   count,
-  // } = itemDetails;
 
   const increment = () => {
     setitemDetails({ ...itemDetails, count: itemDetails.count + 1 });
-    context.increment(_id);
-    context.addToCart(_id);
-    context.addTotal(_id);
+    context.increment(itemId);
+    context.addToCart(itemId);
+    context.addTotal(itemId);
   };
 
   const decrement = () => {
     setitemDetails({ ...itemDetails, count: itemDetails.count - 1 });
-    context.decrement(_id);
-    count === 1 && context.removeFromCart(_id);
-    context.reduceFromTotal(_id);
+    context.decrement(itemId);
+    itemDetails.count === 1 && context.removeFromCart(itemId);
+    context.reduceFromTotal(itemId);
   };
 
   const addbutton = (
@@ -51,44 +37,45 @@ const ProductReviews = ({ itemId, context }) => {
   const controlButton = (
     <div className="cart-componentButton">
       <button onClick={decrement}>-</button>
-      <span>{count}</span>
+      <span>{itemDetails.count}</span>
       <button onClick={increment}>+</button>
     </div>
   );
   return (
     <div>
-    {itemDetails.count && 
-    <div className="reviews">
-    
-      <div className="item-review">
-        <img src={images[0]} alt="images" />
-        <div className="item-rating">
-          <h6>Product Details</h6>
-          <p>{type}</p>
-          <p>{rating}</p>
-          <p>{description}</p>
-        </div>
-      </div>
+      {itemDetails.productName !== undefined && (
+        <div className="reviews">
+          <div className="item-review">
+            <img src={itemDetails.images[0]} alt="images" />
+            <div className="item-rating">
+              <h6>Product Details</h6>
+              <p>{itemDetails.type}</p>
+              <p>{itemDetails.rating}</p>
+              <p>{itemDetails.description}</p>
+            </div>
+          </div>
 
-      <div>
-        <p className="review-categoryName">{productName}</p>
-        <p>
-          Product MRP: <span className="productPrice">₹{unitPrice}</span>
-        </p>
-        <p>
-          <span className="taxes">Inclusive of all taxes</span>
-        </p>
-        <p>
-          <span className="taxes">Available In:</span>
-        </p>
-        <div className="quantity">
-          {unitStartPoint}
-          {unitType}
+          <div>
+            <p className="review-categoryName">{itemDetails.productName}</p>
+            <p>
+              Product MRP:{" "}
+              <span className="productPrice">₹{itemDetails.unitPrice}</span>
+            </p>
+            <p>
+              <span className="taxes">Inclusive of all taxes</span>
+            </p>
+            <p>
+              <span className="taxes">Available In:</span>
+            </p>
+            <div className="quantity">
+              {itemDetails.unitStartPoint}
+              {itemDetails.unitType}
+            </div>
+            {!itemDetails.count ? addbutton : controlButton}
+          </div>
         </div>
-        {!count ? addbutton : controlButton}
-      </div>
+      )}
     </div>
-  }</div>
   );
 };
 

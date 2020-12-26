@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import ProductCard from "../Components/Home/ProductDetails/ProductCard";
+import DashboardCard from "../Components/Home/ProductDetails/DashboardCard";
 import Category from "../Components/Category/Category";
 import ProductReviews from "./ProductReviews";
 import { AiOutlineShop } from "react-icons/ai";
@@ -8,6 +8,11 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 const Dashboard = ({ location, context }) => {
   const [dropdownVisibility, setDropdownVisibility] = useState(false);
+  useEffect(() => {
+    if (!context.products.length) {
+      context.getProduct();
+    }
+  }, [context.products]);
 
   const dropdownItem = (
     <div
@@ -66,10 +71,9 @@ const Dashboard = ({ location, context }) => {
       {location.state && (
         <ProductReviews itemId={location.state._id} context={context} />
       )}
-      <ProductCard context={context} />
-      <div className="dashboard-category">
-        <Category context={context} />
-      </div>
+      <DashboardCard context={context} />
+
+      <Category context={context} />
     </div>
   );
 };
