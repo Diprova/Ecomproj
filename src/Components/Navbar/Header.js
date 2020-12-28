@@ -23,12 +23,18 @@ const Header = () => {
         <div className="header">
           <Logo />
 
-          <Location setLocationVisibility={setLocationVisibility} />
+          <Location
+            setLocationVisibility={setLocationVisibility}
+            context={context}
+          />
           {locationVisibility && (
-            <LocationContent setLocationVisibility={setLocationVisibility} />
+            <LocationContent
+              setLocationVisibility={setLocationVisibility}
+              context={context}
+            />
           )}
 
-          <Search setSearchVisibility={setSearchVisibility} />
+          <Search setSearchVisibility={setSearchVisibility} context={context} />
           {searchVisibility && (
             <SearchContent
               context={context}

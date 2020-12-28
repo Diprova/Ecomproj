@@ -15,6 +15,16 @@ const SearchContent = ({ context, setSearchVisibility }) => {
   let product3 = context.updatedProducts.find(
     (obj) => obj.productName === "Pachabale Banana"
   );
+
+  const mousehover = (e) => {
+    context.showItem(e);
+  };
+  const keydown=(e)=>{
+    if(e.key===40){
+      console.log(e);
+    }
+  }
+
   return (
     <div
       className="search-content"
@@ -25,7 +35,13 @@ const SearchContent = ({ context, setSearchVisibility }) => {
       <div className="trending-template">TRENDING</div>
       {product.map((element, index) => {
         return (
-          <div className="search-productContent" key={index}>
+          <div
+            className="search-productContent"
+            onMouseOver={(e) => mousehover(element.productName)}
+            onKeyDown={(e)=>keydown(e)}
+            key={index}
+            tabIndex="0"
+          >
             <img src={element.images[0]} alt="img" className="search-img" />
             <span className="search-productName">{element.productName}</span>
           </div>

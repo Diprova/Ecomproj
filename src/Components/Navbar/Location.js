@@ -1,9 +1,9 @@
 import React from "react";
 
-const Location = ({setLocationVisibility}) => {
+const Location = ({setLocationVisibility,context}) => {
   return (
     <div className="location" onClick={()=>setLocationVisibility(true)}>
-      <p className="element" >Select City</p>
+      <p className="element" >{context.location}</p>
     </div>
   );
 };

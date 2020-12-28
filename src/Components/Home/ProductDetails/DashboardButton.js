@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-const DashboardButton = ({ item,context }) => {
+const DashboardButton = ({ item, context }) => {
   const [count, setCount] = useState(item.count);
 
-  const increment = () => {
+  const increment = (e) => {
+    e.preventDefault();
     return (
       setCount(context.increment(item._id)),
       context.addToCart(item._id),
@@ -11,7 +12,8 @@ const DashboardButton = ({ item,context }) => {
     );
   };
 
-  const decrement = () => {
+  const decrement = (e) => {
+    e.preventDefault();
     return (
       setCount(context.decrement(item._id)),
       count === 1 && context.removeFromCart(item._id),

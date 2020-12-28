@@ -12,6 +12,7 @@ const initialState = {
   updatedProducts: [],
   count: 0,
   total: 0,
+  item: "",
 };
 
 export class ContextApi extends Component {
@@ -19,7 +20,7 @@ export class ContextApi extends Component {
     super(props);
     this.state = {
       ...initialState,
-      location: "kolkata",
+      location: "Select city",
       getCategory: async () => {
         let res = await Api.get("/api/category");
         this.setState({ category: [...res], updatedCategory: [...res] });
@@ -28,12 +29,19 @@ export class ContextApi extends Component {
         let resp = await Api.get("/api/product");
         this.setState({ products: [...resp], updatedProducts: [...resp] });
       },
-
+      
       getItem: (id) => {
         const selectedProduct = this.state.updatedProducts.findIndex(
           (ele) => ele._id === id
         );
         return selectedProduct;
+      },
+
+      showItem: (item) => {
+        const showitem = this.state.updatedProducts.find(
+          (ele) => ele.productName === item
+        );
+        this.setState({ item: showitem.productName });
       },
 
       increment: (id) => {

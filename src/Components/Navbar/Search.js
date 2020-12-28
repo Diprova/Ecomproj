@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BiSearchAlt } from "react-icons/bi";
-import SearchContent from "../../PopupContents/SearchContent";
-import { AppConsumer } from "../../Route/ContextApi";
 
-const Search = ({ setSearchVisibility }) => {
+const Search = ({ setSearchVisibility, context }) => {
   const onkeyup = (e) => {
     if (e.keyCode === 27) {
       setSearchVisibility(false);
     }
   };
+
+
   return (
     <div className="wrap">
       <input
         type="search"
-        placeholder="Search for products"
+        placeholder={!context.item?"Search for products":context.item}
         onClick={() => {
           setSearchVisibility(true);
         }}
