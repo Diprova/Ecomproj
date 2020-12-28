@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import refund from "../assets/return.webp";
+import lowestPrice from "../assets/lowest-price.webp";
 
 const ProductReviews = ({ itemId, context, item }) => {
   const [itemDetails, setitemDetails] = useState({});
@@ -72,6 +74,25 @@ const ProductReviews = ({ itemId, context, item }) => {
               {itemDetails.unitType}
             </div>
             {!itemDetails.count ? addbutton : controlButton}
+            <div className="easy-returns">
+              <h6>Why shop from Grofers?</h6>
+              <div className="refund">
+                <img src={refund} alt="img" />
+                <div>
+                <p>Easy returns & refunds</p>
+                <p>Return products at doorstep and get refund in seconds.</p>
+                </div>
+              </div>
+              <div className="lowest-price">
+                <img src={lowestPrice} alt="img" />
+                <div>
+                <p>Lowest price guaranteed</p>
+                <p>
+                  Get difference refunded if you find it cheaper anywhere else.
+                </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

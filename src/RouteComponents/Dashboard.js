@@ -72,8 +72,9 @@ const Dashboard = ({ location, context }) => {
         <ProductReviews itemId={location.state._id} context={context} />
       )}
       <DashboardCard context={context} />
-
+        <div className="dashboard-category">
       <Category context={context} />
+      </div>
     </div>
   );
 };

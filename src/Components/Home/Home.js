@@ -6,15 +6,16 @@ import Slide from "./Offers";
 import ProductCard from "./ProductDetails/ProductCard";
 import Category from "../Category/Category";
 
-const Home = ({context}) => {
+const Home = ({ context }) => {
+  
   return (
     <>
       <Category context={context} />
       <EyeCatcher />
       <Slide />
-      <ProductCard context={context}/>
+      <ProductCard context={context} />
       <CodeUse />
-      <DiscountProducts context={context}/>
+      <DiscountProducts context={context} />
     </>
   );
 };

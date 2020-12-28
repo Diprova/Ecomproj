@@ -1,5 +1,5 @@
 import React, { Children, Component, useContext } from "react";
-import Api from "../Utility/restapi";
+import Rest from "../Utility/restapi";
 
 export const AppContext = React.createContext();
 
@@ -13,6 +13,7 @@ const initialState = {
   count: 0,
   total: 0,
   item: "",
+  isAuthenticated:false
 };
 
 export class ContextApi extends Component {
@@ -22,14 +23,14 @@ export class ContextApi extends Component {
       ...initialState,
       location: "Select city",
       getCategory: async () => {
-        let res = await Api.get("/api/category");
+        let res = await Rest.get("/api/category");
         this.setState({ category: [...res], updatedCategory: [...res] });
       },
       getProduct: async () => {
-        let resp = await Api.get("/api/product");
+        let resp = await Rest.get("/api/product");
         this.setState({ products: [...resp], updatedProducts: [...resp] });
       },
-      
+
       getItem: (id) => {
         const selectedProduct = this.state.updatedProducts.findIndex(
           (ele) => ele._id === id
@@ -121,6 +122,18 @@ export class ContextApi extends Component {
               ...this.state.updatedProducts.slice(productIndex + 1),
             ],
           });
+        }
+      },
+      login: async (email, password) => {
+        let value = await Rest.post("/api/auth", { email, password });
+        localStorage.setItem("token", value.token);
+        // loadUser();
+      },
+      loadUser: async () => {
+        if (localStorage.token) {
+          let value = await Rest.getAuthUser("/api/auth", localStorage.token);
+          console.log(value, "loaduser");
+          this.setState({user:{...value},isAuthenticated:true})
         }
       },
     };

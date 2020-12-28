@@ -5,9 +5,12 @@ const Search = ({ setSearchVisibility, context }) => {
   const onkeyup = (e) => {
     if (e.keyCode === 27) {
       setSearchVisibility(false);
+    }else if(e.keyCode===40){
+      context.showItem(e);
     }
   };
-
+  console.log(context.item);
+    
 
   return (
     <div className="wrap">
