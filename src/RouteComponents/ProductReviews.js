@@ -43,6 +43,7 @@ const ProductReviews = ({ itemId, context, item }) => {
       <button onClick={increment}>+</button>
     </div>
   );
+  console.log(context.user);
   return (
     <div>
       {itemDetails.productName !== undefined && (

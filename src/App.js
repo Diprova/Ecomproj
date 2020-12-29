@@ -7,6 +7,7 @@ import { AppContext } from "./Route/ContextApi";
 
 const App = () => {
   const context = useContext(AppContext);
+
   useEffect(() => {
     context.loadUser();
   }, []);

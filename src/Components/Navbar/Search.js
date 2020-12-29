@@ -9,7 +9,6 @@ const Search = ({ setSearchVisibility, context }) => {
       context.showItem(e);
     }
   };
-  console.log(context.item);
     
 
   return (
