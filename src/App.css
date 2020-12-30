@@ -142,7 +142,7 @@
 .authentication-content {
   position: fixed;
   width: 250px;
-  height: 30vh;
+  height: 20vh;
   box-shadow: 0 1px 2px 0 grey;
   background-color: whitesmoke;
   float: right;
@@ -160,6 +160,19 @@
   font-weight: 600;
 }
 
+.authentication-content div{
+  border-bottom: 1px solid rgb(226, 224, 224);
+}
+.authentication-content p{
+  color: #0f0f11;
+  padding-left:30px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.authentication-content span{
+  padding-left: 10px;
+}
+
 /* Search Content */
 .search-content {
   position: fixed;
@@ -175,6 +188,7 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  cursor: pointer;
 }
 
 .search-productName {
@@ -906,9 +920,16 @@ h6 {
   display: flex;
   flex-flow: column wrap;
   width:350px;
-  height:430px;
+  height:445px;
   padding-left:20px;
   background-color: rgb(160, 167, 163);
+}
+
+.alert{
+  font-size: 13px;
+  color:red;
+  font-weight: 500;
+  margin:1px 0 0 0;
 }
 
 .form input{
@@ -950,4 +971,17 @@ h6 {
 .login-formContainer button:focus{
   outline: 0 !important;
   display: none;
+}
+
+.popup-alert{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:500px;
+  height:50px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 5px #333;
+  position: fixed;
+  z-index: 20;
 }

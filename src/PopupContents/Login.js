@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import Rest from "../Utility/restapi";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Login = ({ context }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [popupAlert, setPopupAlert] = useState(false);
 
   const { email, password } = formData;
-  let history=useHistory();
+  let history = useHistory();
 
   useEffect(() => {
     if (!context.user) {
@@ -24,11 +24,11 @@ const Login = ({ context }) => {
     console.log(formData);
     console.log(context.user);
     console.log(localStorage.getItem("token"));
-    if (localStorage.token === localStorage.getItem("token")) {
+    if (localStorage.token !=="undefined") {
       context.loadUser();
-      history.push("/")
+      history.push("/");
     } else {
-      alert("Invalid Credentials");
+      setPopupAlert(true);
     }
   };
 
@@ -39,7 +39,7 @@ const Login = ({ context }) => {
     <div className="login-formContainer">
       <form className="form" onSubmit={(e) => submitHandler(e)}>
         <h5>Login</h5>
-
+        {popupAlert && <p className="alert"> Invalid Credentials</p>}
         <div>
           <p>Email:</p>
           <input

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 const SearchContent = ({ context, setSearchVisibility }) => {
   const [product, setProduct] = useState([]);
 
+  let history = useHistory();
   useEffect(() => {
     setProduct([...context.products]);
   }, []);
@@ -19,7 +21,6 @@ const SearchContent = ({ context, setSearchVisibility }) => {
   const mousehover = (e) => {
     context.showItem(e);
   };
- 
 
   return (
     <div
@@ -34,6 +35,10 @@ const SearchContent = ({ context, setSearchVisibility }) => {
           <div
             className="search-productContent"
             onMouseOver={(e) => mousehover(element.productName)}
+            onClick={() =>
+              history.push({ pathname: "/dashboard", state: { ...element } })
+            }
+            onMouseLeave={null}
             key={index}
           >
             <img src={element.images[0]} alt="img" className="search-img" />

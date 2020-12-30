@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Rest from "../Utility/restapi";
 import { useHistory } from "react-router-dom";
+import { useAlert } from "react-alert";
 
 const Configuration = () => {
+  const [pwdalert, setPwdAlert] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,29 +13,32 @@ const Configuration = () => {
   });
 
   const { name, email, password, password2 } = formData;
+  const alert = useAlert();
 
   let history = useHistory();
+
+  let errors;
 
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log(formData);
     if (password !== password2) {
-      alert("Your password does not match");
+      setPwdAlert(true);
     } else {
       let value = await Rest.post("/api/users", { name, email, password });
 
       if (value.status >= 200 && value.status <= 300) {
         history.push("/login");
       } else {
+        setPopupAlert(true);
         let resError = value.data.errors;
-        let errors = resError.map((e) => {
+        errors = resError.map((e) => {
           return e.msg;
         });
-        alert(errors.toString());
+        alert.show(<div style={{color:"red"}}>{errors.toString()}</div>);
       }
     }
   };
-
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -41,6 +46,11 @@ const Configuration = () => {
     <div className="form-container">
       <form className="form" onSubmit={(e) => submitHandler(e)}>
         <h5>Sign Up</h5>
+        {pwdalert && (
+          <p className="alert">
+            {password !== password2 && "Your password does not match"}
+          </p>
+        )}
         <div>
           <p>Name:</p>
           <input
