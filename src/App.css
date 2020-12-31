@@ -179,7 +179,7 @@
   z-index: 1050;
   background-color: white;
   top: 44px;
-  left: 276px;
+  left: 269px;
   border-radius: 5px;
   width: 635px;
   color: black;
@@ -1025,10 +1025,14 @@ h6 {
   .wrap input {
     height: 10vh;
     width: 220px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
   }
   .wrap button {
     height: 10vh;
     padding: 0;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
   }
   .cart h4 {
     display: none;
@@ -1042,12 +1046,14 @@ h6 {
     display: block;
     margin-left: 20px;
     width: 30%;
+    bottom:20px;
   }
   .category-btn button {
     top: 70px;
-    height: 11vh;
+    height: 9vh;
     width: 90%;
     border-radius: 9px;
+    bottom:20px;
   }
   .carousel {
     width: 410px;
@@ -1101,5 +1107,102 @@ h6 {
   }
   .cardBox {
     border: 1px solid grey !important;
+  }
+}
+@media screen and (max-width:1024px) and (min-width:469px){
+  .header{
+    width:1400px;
+  }
+  .cardBox:last-child(6){
+    border-right:1px solid rgb(214, 206, 206) !important;
+  }
+}
+
+/* Dashboard */
+
+@media screen and (max-width:468px){
+  .category-header{
+    display: none;
+  }
+  .reviews{
+    display: flex;
+    flex-flow: column wrap;
+    height:150vh;
+  }
+  .reviews img{
+    width:200px;
+    height:200px;
+    padding-left: 10px;
+  }
+  .item-review{
+    padding-left: 0;
+    width:320px;
+  }
+  .item-rating{
+    padding-left: 0;
+  }
+  .quantity{
+    width:320px;
+  }
+  .cart-button{
+    width:320px;
+  }
+  .refund img{
+    width:70px;
+    height:70px;
+  }
+  .lowest-price img{
+    width:70px;
+    height:70px;
+  }
+  .dashboard-card{
+    width:320px;
+  }
+}
+@media screen and (max-width:769px) and (min-width:469px){
+  .category-header{
+    display: none;
+  }
+  .reviews{
+    width:1400px;
+  }
+  .dashboard-card{
+    width:1390px;
+  }
+  .dashboard-category{
+    width:1400px;
+  }
+}
+@media screen and (max-width:1024px) and (min-width:770px){
+ 
+  .reviews{
+    width:1400px;
+  }
+  .dashboard-card{
+    width:1390px;
+  }
+  .dashboard-category{
+    width:1400px;
+  }
+}
+/* RouteProductDetails */
+@media screen and (max-width:468px){
+  .product-slot{
+    margin: 0;
+  }
+  .category{
+    width:100px;
+  }
+  .product-curtain{
+    width: 300px;
+  }
+  .product-card{
+    display: flex;
+    flex-flow: column wrap;
+  }
+}
+@media screen and (max-width:1024px) and (min-width:469px){
+  .product-slot{
+    width:1250px;
   }
 }
