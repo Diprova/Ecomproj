@@ -10,6 +10,7 @@ import Authentication from "./Authentication";
 import MyCart from "./MyCart";
 import "../../App.css";
 import { AppConsumer } from "../../Route/ContextApi";
+import Categories from "./Categories";
 
 const Header = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
@@ -54,6 +55,8 @@ const Header = () => {
               context={context}
             />
           )}
+
+          <Categories />
         </div>
       )}
     </AppConsumer>

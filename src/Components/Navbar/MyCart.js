@@ -7,7 +7,7 @@ const MyCart = ({ setCartVisibility }) => {
   return (
     <>
       <div className="cart" onClick={() => setCartVisibility(true)}>
-        <AiOutlineShoppingCart size={25} className="cartIcon" />
+        <AiOutlineShoppingCart size={40} className="cartIcon" />
         <h4>My Cart</h4></div>
     </>
   );
