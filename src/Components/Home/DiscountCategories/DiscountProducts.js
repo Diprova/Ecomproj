@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DiscountList from "./DiscountList";
+import "./discountCategories.css";
 
 const DiscountProducts = ({ context }) => {
   const [discountPrdct, setDiscoutPrdct] = useState([]);

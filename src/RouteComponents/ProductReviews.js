@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import refund from "../assets/return.webp";
 import lowestPrice from "../assets/lowest-price.webp";
+import "./stylesRoute.css";
 
 const ProductReviews = ({ itemId, context, item }) => {
   const [itemDetails, setitemDetails] = useState({});
@@ -47,8 +48,8 @@ const ProductReviews = ({ itemId, context, item }) => {
   return (
     <div>
       {itemDetails.productName !== undefined && (
-        <div className="reviews">
-          <div className="item-review">
+        <div className="reviews container">
+          <div className="item-review container">
             <img src={itemDetails.images[0]} alt="images" />
             <div className="item-rating">
               <h6>Product Details</h6>
@@ -58,7 +59,7 @@ const ProductReviews = ({ itemId, context, item }) => {
             </div>
           </div>
 
-          <div>
+          <div className="item-price container">
             <p className="review-categoryName">{itemDetails.productName}</p>
             <p>
               Product MRP:{" "}

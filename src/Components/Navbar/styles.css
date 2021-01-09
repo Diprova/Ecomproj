@@ -1,0 +1,151 @@
+/* Header Items */
+.header {
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #0f0f11;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  color: white;
+  white-space: nowrap;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+.first-header,
+.second-header {
+  display: flex;
+  height: 8vh;
+  line-height: 8vh;
+  justify-content: space-between;
+  text-align: left;
+}
+
+/* ----MENU BAR----- */
+
+/* -------LOGO----------- */
+.image img {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+}
+.image {
+  display: none;
+  border-right: 1px solid #495464;
+  cursor: pointer;
+}
+.image:hover {
+  background-color: #393e46;
+  cursor: pointer;
+}
+
+/* -----LOCATION------- */
+
+.location {
+  display: flex;
+  color: white;
+  padding: 0 20px;
+}
+.location:hover {
+  background-color: #393e46;
+  cursor: pointer;
+}
+.element {
+  line-height: 8vh;
+}
+.element::after {
+  content: " ";
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid white;
+  margin-left: 9px;
+}
+/* ----SEARCH BAR--------- */
+.wrap {
+  display: flex;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 5vh;
+  margin-top: 14px;
+}
+input {
+  width: 100%;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.searchButton {
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #f4f4f2;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+/* -----AUTHENTICATION------- */
+.authentication {
+  display: none;
+  padding: 0 20px;
+  border-right: 1px solid #495464;
+}
+.authentication:hover {
+  background-color: #393e46;
+  cursor: pointer;
+}
+
+.signUp::after {
+  content: " ";
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid white;
+  margin: 1px 15px;
+}
+/*----------MY CART-------------  */
+.cart {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  cursor: pointer;
+}
+.cart h4 {
+  display: none;
+}
+.cart:hover {
+  background-color: #393e46;
+  cursor: pointer;
+}
+.cartIcon {
+  padding-right: 20px;
+}
+/* -----CATEGORY BUTTON */
+.category-btn {
+  margin: 0 1%;
+}
+.category-btn button {
+  display: block;
+  height: 100%;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}

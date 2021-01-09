@@ -15,12 +15,12 @@ const EyeCatcher = () => {
   return (
     <div>
       {interval ? (
-        <div className="eyeCatcher1">
+        <div className="eyeCatcher1 container">
           <img src={fruitsnveggies} alt="fruits" className="fruits" />
           <h1>Fruits, grocceries and daily needs</h1>
         </div>
       ) : (
-        <div className="eyeCatcher2">
+        <div className="eyeCatcher2 container">
           <img src={truck} alt="truck" className="truck" />
           <h1>
             <span className="spanClass">Next day </span>delivery of your order

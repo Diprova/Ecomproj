@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import DashboardButton from "../Components/Home/ProductDetails/DashboardButton";
 import { AiOutlineShop } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { useHistory } from "react-router-dom";
 
 const RouteProductDetails = ({ context }) => {
   const [dropdownVisibility, setDropdownVisibility] = useState(false);
   const [product, setProduct] = useState([]);
+
+  let history = useHistory();
 
   useEffect(() => {
     setProduct([...context.products]);
@@ -28,7 +31,6 @@ const RouteProductDetails = ({ context }) => {
       <p>{context.updatedCategory[7] && context.updatedCategory[7].title} </p>
     </div>
   );
-
 
   return (
     <div>
@@ -72,42 +74,46 @@ const RouteProductDetails = ({ context }) => {
           {dropdownItem}
         </div>
       )}
-      <div className="product-slot">
+      <div className="product-slot container">
         <div className="category">
           <p>Fruites & Veggies</p>
           <p>Vegetables</p>
           <p>Fruits</p>
         </div>
-        <div className="product-curtain">
-        <h4>Fruits & Veggies</h4>
-        <div className="product-card">
-          {product.map((item) => {
-            return (
-              <div key={item._id} className="dashboardCard-content">
+        <div className="product-curtain container">
+          <h4>Fruits & Veggies</h4>
+          <div className="product-card">
+            {product.map((item) => {
+              return (
                 <div
+                  key={item._id}
+                  className="dashboardCard-content container"
                   onClick={() =>
-                    history.push({ pathname: "/dashboard", state: { ...item } })
+                    history.push({
+                      pathname: "/dashboard",
+                      state: { ...item },
+                    })
                   }
                 >
-                  <img src={item.images[0]} alt="image" />
-                  <ul style={{ listStyleType: "none", color: "#534e52" }}>
-                    <li>
-                      <h6>{item.productName}</h6>
-                    </li>
-                    <li> ₹ {item.unitPrice}</li>
-                    <li>
-                      {item.unitStartPoint}
-                      {item.unitType}
-                    </li>
-                  </ul>
+                  <div>
+                    <img src={item.images[0]} alt="image" />
+                    <ul style={{ listStyleType: "none", color: "#534e52" }}>
+                      <li>
+                        <h6>{item.productName}</h6>
+                      </li>
+                      <li> ₹ {item.unitPrice}</li>
+                      <li>
+                        {item.unitStartPoint}
+                        {item.unitType}
+                      </li>
+                    </ul>
+                  </div>
+                  <span>
+                    <DashboardButton item={item} context={context} />
+                  </span>
                 </div>
-                <span>
-                  <DashboardButton item={item} context={context} />
-                </span>
-              </div>
-            
-            );
-          })}
+              );
+            })}
           </div>
         </div>
       </div>

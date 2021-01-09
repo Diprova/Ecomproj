@@ -3,17 +3,6 @@
     background-color: white;
     color:rgb(77, 75, 75);
     text-align: center;
+    margin-top: 10vh;
 }
-.reservedRights h3{
-    margin-top: none;
-}
-@media screen and (max-width:468px){
-    .reservedRights{
-        width:410px;
-    }
-}
-@media screen and (max-width:1024px) and (min-width:469px){
-    .reservedRights{
-        width:1400px;
-    }
-}
+

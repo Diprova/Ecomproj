@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import "../../../App.css";
+import "./productDetails.css";
 import DashboardButton from "./DashboardButton";
 
 const DashboardCard = ({ context }) => {
@@ -18,10 +18,10 @@ const DashboardCard = ({ context }) => {
   }, [context.products]);
 
   return (
-    <div className="dashboard-card">
+    <div className="dashboard-card container">
       {product.map((item) => {
         return (
-          <div key={item._id} className="dashboardCard-content">
+          <div key={item._id} className="dashboardCard-content container">
             <div
               onClick={() =>
                 history.push({ pathname: "/dashboard", state: { ...item } })

@@ -12,7 +12,7 @@ const DiscountList = ({ item }) => {
   };
 
   return (
-    <div className="discountlistContainer">
+    <div className="discountlistContainer container">
       <div
         className={btnState ? "discountList inactive" : "discountList active"}
       >
@@ -21,19 +21,20 @@ const DiscountList = ({ item }) => {
           <p>{productName}</p>
           <p>{description}</p>
         </div>
-      </div>
-      <div
-        className={btnState ? "listbtn inactive" : "listbtn active"}
-        onClick={handleClickOn}
-      >
-        {btnState ? (
-          <MdKeyboardArrowDown size={35} />
-        ) : (
-          <MdKeyboardArrowUp size={35} />
-        )}
+        <div
+          className={btnState ? "listbtn inactive" : "listbtn active"}
+          onClick={handleClickOn}
+        >
+          {btnState ? (
+            <MdKeyboardArrowDown size={35} />
+          ) : (
+            <MdKeyboardArrowUp size={35} />
+          )}
         </div>
-        {btnState ? null : <DiscountCard />}
       </div>
+
+      {btnState ? null : <DiscountCard />}
+    </div>
   );
 };
 export default DiscountList;

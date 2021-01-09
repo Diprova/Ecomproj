@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 
 const ProductButton = ({ context, item }) => {
   const [count, setCount] = useState(item.count);
@@ -20,11 +20,13 @@ const ProductButton = ({ context, item }) => {
   };
 
   const addbtn = (
-    <div>
-      <button className="addbtn" onClick={increment}>
+    <div className="addbtn">
+      <button className="addbtn-btn" onClick={increment}>
         Add
       </button>
-      <button className="span-btn" onClick={increment}>+</button>
+      <button className="span-btn" onClick={increment}>
+        +
+      </button>
     </div>
   );
 

@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { useHistory } from "react-router-dom";
+import SearchContent from "../../PopupContents/SearchContent";
 
-const Search = ({ setSearchVisibility, context }) => {
+const Search = ({ context }) => {
   const [keyPress, setKeyPress] = useState(false);
   const [index, setIndex] = useState(0);
-  const products = context.updatedProducts;
+  const [product, setProduct] = useState([]);
   let history = useHistory();
+
+  useEffect(() => {
+    setProduct([...context.products]);
+    console.log("product",product);
+    console.log("Contextproduct",context.products);
+  }, []);
+  useEffect(() => {
+    if (!context.products.length) {
+      context.getProduct();
+    }
+  }, [context.products]);
+
+
 
   const keydown = (e) => {
     if (e.keyCode === 40) {
@@ -23,33 +37,29 @@ const Search = ({ setSearchVisibility, context }) => {
         setKeyPress(false);
       }
     } else {
-      setSearchVisibility(false);
       if (e.keyCode === 13) {
-        const item = products.find(
-          (elemnt) => elemnt.productName === products[index].productName
+        const item = product.find(
+          (elemnt) => elemnt.productName === product[index].productName
         );
         history.push({ pathname: "/dashboard", state: { ...item } });
       }
     }
   };
 
-  const keyEnter = (e) => {};
-
   const onkeyup = (e) => {
     if (e.keyCode === 27) {
-      setSearchVisibility(false);
     }
   };
 
   return (
     <div className="wrap">
+      <div className="category-btn">
+        <button>Categories</button>
+      </div>
       <input
         type="search"
         placeholder={!context.item ? "Search for products" : context.item}
-        value={keyPress ? products[index].productName : ""}
-        onClick={() => {
-          setSearchVisibility(true);
-        }}
+        value={keyPress && !product.length ? product[index].productName : ""}
         onKeyUp={(e) => onkeyup(e)}
         onKeyDown={(e) => keydown(e)}
         onKeyPress={(e) => keyEnter(e)}

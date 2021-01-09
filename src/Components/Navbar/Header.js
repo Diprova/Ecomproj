@@ -8,55 +8,59 @@ import AuthenticationContent from "../../PopupContents/AuthenticationContent";
 import SearchContent from "../../PopupContents/SearchContent";
 import Authentication from "./Authentication";
 import MyCart from "./MyCart";
-import "../../App.css";
+import "./styles.css";
 import { AppConsumer } from "../../Route/ContextApi";
-import Categories from "./Categories";
+import Menubar from "./Menubar";
+import MenubarContent from "../../PopupContents/MenubarContent";
 
 const Header = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
   const [locationVisibility, setLocationVisibility] = useState(false);
   const [searchVisibility, setSearchVisibility] = useState(false);
   const [authenVisibility, setAuthenVisibility] = useState(false);
+  const [menubarVisibility, setMenubarVisibility] = useState(false);
 
   return (
     <AppConsumer>
       {(context) => (
-        <div className="header">
-          <Logo />
+        <div className="header container">
+          <div className="first-header">
+            <Menubar setMenubarVisibility={setMenubarVisibility} />
+            {menubarVisibility && (
+              <MenubarContent
+                setMenubarVisibility={setMenubarVisibility}
+                setCartVisibility={setCartVisibility}
+              />
+            )}
+            <Logo />
 
-          <Location
-            setLocationVisibility={setLocationVisibility}
-            context={context}
-          />
-          {locationVisibility && (
-            <LocationContent
+            <Location
               setLocationVisibility={setLocationVisibility}
               context={context}
             />
-          )}
-
-          <Search setSearchVisibility={setSearchVisibility} context={context} />
-          {searchVisibility && (
-            <SearchContent
-              context={context}
-              setSearchVisibility={setSearchVisibility}
-            />
-          )}
-
+            {locationVisibility && (
+              <LocationContent
+                locationVisibility={locationVisibility}
+                setLocationVisibility={setLocationVisibility}
+                context={context}
+              />
+            )}
+            <MyCart setCartVisibility={setCartVisibility} />
+            {cartVisibility && (
+              <Cartcontent
+                cartVisibility={cartVisibility}
+                setCartVisibility={setCartVisibility}
+                context={context}
+              />
+            )}
+          </div>
+          <div className="second-header">
+            <Search context={context} />
+          </div>
           <Authentication setAuthenVisibility={setAuthenVisibility} />
           {authenVisibility && (
             <AuthenticationContent setAuthenVisibility={setAuthenVisibility} />
           )}
-
-          <MyCart setCartVisibility={setCartVisibility} />
-          {cartVisibility && (
-            <Cartcontent
-              setCartVisibility={setCartVisibility}
-              context={context}
-            />
-          )}
-
-          <Categories />
         </div>
       )}
     </AppConsumer>

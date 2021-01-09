@@ -5,6 +5,7 @@ import Category from "../Components/Category/Category";
 import ProductReviews from "./ProductReviews";
 import { AiOutlineShop } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import "./stylesRoute.css";
 
 const Dashboard = ({ location, context }) => {
   const [dropdownVisibility, setDropdownVisibility] = useState(false);
@@ -28,7 +29,7 @@ const Dashboard = ({ location, context }) => {
   );
   return (
     <div>
-      <div className="category-header">
+      <div className="category-header container">
         <div className="market">
           <AiOutlineShop size={25} />
           <span>Super Store- 7 Kolka..</span>
@@ -72,10 +73,8 @@ const Dashboard = ({ location, context }) => {
         <ProductReviews itemId={location.state._id} context={context} />
       )}
       <DashboardCard context={context} />
-        <div className="dashboard-category">
       <Category context={context} />
       </div>
-    </div>
   );
 };
 

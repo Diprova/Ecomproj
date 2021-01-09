@@ -36,8 +36,8 @@ const Login = ({ context }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   return (
-    <div className="login-formContainer">
-      <form className="form" onSubmit={(e) => submitHandler(e)}>
+    <div className="login-formContainer container">
+      <form className="form container" onSubmit={(e) => submitHandler(e)}>
         <h5>Login</h5>
         {popupAlert && <p className="alert"> Invalid Credentials</p>}
         <div>

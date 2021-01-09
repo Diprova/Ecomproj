@@ -5,6 +5,7 @@ import EyeCatcher from "./EyeCatcher";
 import Slide from "./Offers";
 import ProductCard from "./ProductDetails/ProductCard";
 import Category from "../Category/Category";
+import "./home.css";
 
 const Home = ({ context }) => {
   

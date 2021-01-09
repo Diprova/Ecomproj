@@ -43,8 +43,8 @@ const Configuration = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   return (
-    <div className="form-container">
-      <form className="form" onSubmit={(e) => submitHandler(e)}>
+    <div className="form-container container">
+      <form className="form container" onSubmit={(e) => submitHandler(e)}>
         <h5>Sign Up</h5>
         {pwdalert && (
           <p className="alert">

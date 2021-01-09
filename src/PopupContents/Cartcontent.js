@@ -2,29 +2,21 @@ import React, { useState, useEffect } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import CartComponent from "./CartComponent";
 import emptyCart from "../assets/empty-cart.webp";
+import "./popupContents.css";
 
-const Cartcontent = ({ setCartVisibility, context }) => {
-  // const [subtotal, setSubtotal] = useState(
-  //   context.cart.reduce((n, { total }) => n + total+49, 0)
-  // );
+const Cartcontent = ({ cartVisibility, setCartVisibility, context }) => {
+  const showHideClassName = cartVisibility
+    ? "modal display-block"
+    : "modal display-none";
 
-  // useEffect(() => {
-  //   if (context.cart.length != subtotal) {
-  //     console.log(context.cart.length, "legth");
-  //     setSubtotal(context.cart.length);
-  //   }
-  // }, [context.cart.length]);
   let subtotal = context.cart.reduce((n, { total }) => n + total + 49, 0);
 
   return (
-    <>
-      <div className="cart-content">
-        <button
-          className="cartcontent-button"
-          onClick={() => setCartVisibility(false)}
-        >
+    <div className={showHideClassName} onClick={() => setCartVisibility(false)}>
+      <div className="cart-content container">
+        <button className="cartcontent-button">
           My Cart
-          <AiOutlineArrowRight />
+          <AiOutlineArrowRight onClick={() => setCartVisibility(false)}/>
         </button>
 
         {subtotal === 0 ? (
@@ -60,7 +52,7 @@ const Cartcontent = ({ setCartVisibility, context }) => {
           </button>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

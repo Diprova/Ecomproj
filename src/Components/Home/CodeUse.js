@@ -14,7 +14,7 @@ const CodeUse = () => {
     slidesToScroll: 1,
   };
   return (
-    <div className="codeUse">
+    <div className="codeUse container">
       <Slider {...settings}>
         <div>
           <img src={nescafe} alt="img" />
