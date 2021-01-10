@@ -28,7 +28,7 @@ const Dashboard = ({ location, context }) => {
     </div>
   );
   return (
-    <div>
+    <div className="container">
       <div className="category-header container">
         <div className="market">
           <AiOutlineShop size={25} />
@@ -73,8 +73,10 @@ const Dashboard = ({ location, context }) => {
         <ProductReviews itemId={location.state._id} context={context} />
       )}
       <DashboardCard context={context} />
-      <Category context={context} />
+      <div className="category-container container">
+        <Category context={context} />
       </div>
+    </div>
   );
 };
 

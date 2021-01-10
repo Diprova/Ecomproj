@@ -1,26 +1,35 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { RiLayoutRight2Line } from "react-icons/ri";
+import "./popupContents.css";
 
-const AuthenticationContent = ({ setAuthenVisibility }) => {
+const AuthenticationContent = ({ setAuthenVisibility, authenVisibility }) => {
   let history = useHistory();
+
+  const showHideClassName = authenVisibility
+    ? "modal display-block"
+    : "modal display-none";
   return (
     <div
-      className="authentication-content"
+      className={showHideClassName}
       onClick={() => setAuthenVisibility(false)}
     >
-    <div>
-      <button
-        className="authentication-button"
-        onClick={() => history.push("/register")}
-      >
-        Login or Sign Up
-      </button>
+      <div className="authentication-content">
+        <div>
+          <button
+            className="authentication-button"
+            onClick={() => history.push("/register")}
+          >
+            Login or Sign Up
+          </button>
+        </div>
+        <div>
+          <p onClick={() => window.scroll(0, 300)}>
+            <RiLayoutRight2Line />
+            <span>Offers</span>
+          </p>
+        </div>
       </div>
-      <div>
-      <p onClick={()=>window.scroll(0,300)}><RiLayoutRight2Line/><span>Offers</span></p>
-      </div>
-      
     </div>
   );
 };

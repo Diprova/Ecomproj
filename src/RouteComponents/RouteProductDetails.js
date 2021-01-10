@@ -33,8 +33,8 @@ const RouteProductDetails = ({ context }) => {
   );
 
   return (
-    <div>
-      <div className="category-header">
+    <div className="container">
+      <div className="category-header container">
         <div className="market">
           <AiOutlineShop size={25} />
           <span>Super Store- 7 Kolka..</span>

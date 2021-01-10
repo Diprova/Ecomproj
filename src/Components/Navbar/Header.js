@@ -19,7 +19,6 @@ const Header = () => {
   const [searchVisibility, setSearchVisibility] = useState(false);
   const [authenVisibility, setAuthenVisibility] = useState(false);
   const [menubarVisibility, setMenubarVisibility] = useState(false);
-  
 
   return (
     <AppConsumer>
@@ -69,8 +68,21 @@ const Header = () => {
           )}
           <Authentication setAuthenVisibility={setAuthenVisibility} />
           {authenVisibility && (
-            <AuthenticationContent setAuthenVisibility={setAuthenVisibility} />
+            <AuthenticationContent
+              setAuthenVisibility={setAuthenVisibility}
+              authenVisibility={authenVisibility}
+            />
           )}
+          <div className="cart-webView">
+            <MyCart setCartVisibility={setCartVisibility} />
+            {cartVisibility && (
+              <Cartcontent
+                cartVisibility={cartVisibility}
+                setCartVisibility={setCartVisibility}
+                context={context}
+              />
+            )}
+          </div>
         </div>
       )}
     </AppConsumer>

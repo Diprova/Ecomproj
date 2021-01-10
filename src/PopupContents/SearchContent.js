@@ -33,7 +33,7 @@ const SearchContent = ({ context, setSearchVisibility, searchVisibility }) => {
         setSearchVisibility(false);
       }}
     >
-      <div className="search-content">
+      <div className="search-content container">
         <div className="trending-template">TRENDING</div>
         {product.map((element, index) => {
           return (

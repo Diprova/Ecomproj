@@ -1,4 +1,4 @@
-/* --------------Eye Catcher------------------ */
+/* -----------Eye Catcher--------------- */
 
 .eyeCatcher1,
 .eyeCatcher2 {
@@ -30,7 +30,7 @@
   color: yellow;
 }
 
-/* ----------------Offers--------------------- */
+/* ------------Offers------------- */
 
 .offerContainer {
   display: none;
@@ -68,7 +68,7 @@
     border-radius: 10px;
   } */
 
-/* ---------------------Code Carousel/Code Use------------------- */
+/* ---------Code Carousel/Code Use----------- */
 .codeUse {
   width: 100vw;
   margin-top: 20px;
@@ -76,4 +76,15 @@
 }
 .codeUse img {
   width: 100%;
+}
+
+
+/* -----------------------RESPONSIVE DESIGN------------------------- */
+
+@media screen and (min-width:1000px){
+  /* ----Eye Catcher----- */
+  .eyeCatcher1,.eyeCatcher2{
+    font-size: xxx-large;
+  }
+
 }

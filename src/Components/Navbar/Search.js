@@ -34,6 +34,7 @@ const Search = ({ context, setSearchVisibility, searchVisibility }) => {
           (elemnt) => elemnt.productName === product[index].productName
         );
         history.push({ pathname: "/dashboard", state: { ...item } });
+        setSearchVisibility(false);
       }
     }
   };
@@ -46,7 +47,7 @@ const Search = ({ context, setSearchVisibility, searchVisibility }) => {
   return (
     <div className="wrap">
       {!searchVisibility && (
-        <div className="category-btn">
+        <div className="category-btn" onClick={() => window.scrollTo(0, 798)}>
           <button>Categories</button>
         </div>
       )}
