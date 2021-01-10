@@ -12,8 +12,7 @@
   right: 0;
   z-index: 1000;
 }
-.first-header,
-.second-header {
+.first-header {
   display: flex;
   height: 8vh;
   line-height: 8vh;
@@ -67,11 +66,13 @@
 /* ----SEARCH BAR--------- */
 .wrap {
   display: flex;
+  width:100%;
   flex-grow: 1;
   white-space: nowrap;
   overflow: hidden;
   height: 5vh;
-  margin-top: 14px;
+  margin: 14px 0 3px 0;
+  z-index: 1020;
 }
 input {
   width: 100%;

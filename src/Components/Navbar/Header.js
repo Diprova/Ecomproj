@@ -19,6 +19,7 @@ const Header = () => {
   const [searchVisibility, setSearchVisibility] = useState(false);
   const [authenVisibility, setAuthenVisibility] = useState(false);
   const [menubarVisibility, setMenubarVisibility] = useState(false);
+  
 
   return (
     <AppConsumer>
@@ -54,9 +55,18 @@ const Header = () => {
               />
             )}
           </div>
-          <div className="second-header">
-            <Search context={context} />
-          </div>
+          <Search
+            setSearchVisibility={setSearchVisibility}
+            searchVisibility={searchVisibility}
+            context={context}
+          />
+          {searchVisibility && (
+            <SearchContent
+              context={context}
+              setSearchVisibility={setSearchVisibility}
+              searchVisibility={searchVisibility}
+            />
+          )}
           <Authentication setAuthenVisibility={setAuthenVisibility} />
           {authenVisibility && (
             <AuthenticationContent setAuthenVisibility={setAuthenVisibility} />

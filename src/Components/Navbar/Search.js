@@ -1,26 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { useHistory } from "react-router-dom";
-import SearchContent from "../../PopupContents/SearchContent";
 
-const Search = ({ context }) => {
+const Search = ({ context, setSearchVisibility, searchVisibility }) => {
   const [keyPress, setKeyPress] = useState(false);
   const [index, setIndex] = useState(0);
   const [product, setProduct] = useState([]);
   let history = useHistory();
 
   useEffect(() => {
-    setProduct([...context.products]);
-    console.log("product",product);
-    console.log("Contextproduct",context.products);
-  }, []);
-  useEffect(() => {
-    if (!context.products.length) {
-      context.getProduct();
+    if (context.products.length) {
+      setProduct([...context.products]);
     }
   }, [context.products]);
-
-
 
   const keydown = (e) => {
     if (e.keyCode === 40) {
@@ -53,16 +45,19 @@ const Search = ({ context }) => {
 
   return (
     <div className="wrap">
-      <div className="category-btn">
-        <button>Categories</button>
-      </div>
+      {!searchVisibility && (
+        <div className="category-btn">
+          <button>Categories</button>
+        </div>
+      )}
       <input
         type="search"
         placeholder={!context.item ? "Search for products" : context.item}
-        value={keyPress && !product.length ? product[index].productName : ""}
+        value={keyPress ? product[index].productName : ""}
         onKeyUp={(e) => onkeyup(e)}
         onKeyDown={(e) => keydown(e)}
         onKeyPress={(e) => keyEnter(e)}
+        onClick={() => setSearchVisibility(true)}
       />
 
       <button type="submit" className="searchButton">

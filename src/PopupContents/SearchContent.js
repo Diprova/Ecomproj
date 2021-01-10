@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import "./popupContents.css";
+const SearchContent = ({ context, setSearchVisibility, searchVisibility }) => {
+  const [product, setProduct] = useState([]);
 
-const SearchContent = ({ products, setSearchVisibility, searchVisibility }) => {
   const showHideClassName = searchVisibility
     ? "modal display-block"
     : "modal display-none";
 
   let history = useHistory();
+  useEffect(() => {
+    setProduct([...context.products]);
+  }, []);
+  useEffect(() => {
+    if (!context.products.length) {
+      context.getProduct();
+    }
+  }, [context.products]);
 
-  console.log(products);
-  
-  let product3 = products.find(
+  let product3 = context.updatedProducts.find(
     (obj) => obj.productName === "Pachabale Banana"
   );
 
@@ -25,9 +33,9 @@ const SearchContent = ({ products, setSearchVisibility, searchVisibility }) => {
         setSearchVisibility(false);
       }}
     >
-      <div className="search-content container">
+      <div className="search-content">
         <div className="trending-template">TRENDING</div>
-        {products.map((element, index) => {
+        {product.map((element, index) => {
           return (
             <div
               className="search-productContent"
