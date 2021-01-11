@@ -171,9 +171,10 @@
   width: 100px;
   height: 100px;
   margin: 3px 70px;
+  
 }
 .dashboardCard-content:hover img {
-  top: -1px;
+  margin-top: -1px;
 }
 .addbutn {
   background-color: white;

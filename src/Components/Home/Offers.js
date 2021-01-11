@@ -21,7 +21,7 @@ const productDetails = [
 
 const Slide = () => {
   return (
-    <div className="offerContainer">
+    <div className="offerContainer container">
       {productDetails.map((item, index) => {
         return (
           <div className="product-detail" key={index}>

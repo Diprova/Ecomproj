@@ -32,16 +32,13 @@
 
 /* ------------Offers------------- */
 
-.offerContainer {
-  display: none;
-}
 
-/* .offerContainer {
-    display: flex;
+.offerContainer {
+    display: none;
     flex-flow: row wrap;
     justify-content: space-around;
-    width: 1000px;
-    margin: 20px 0 20px 200px;
+    width: 80vw;
+    margin: 20px auto;
   }
   .product-detail {
     margin-right: 10px;
@@ -66,7 +63,7 @@
     width: 280px;
     height: 300px;
     border-radius: 10px;
-  } */
+  }
 
 /* ---------Code Carousel/Code Use----------- */
 .codeUse {
@@ -85,6 +82,9 @@
   /* ----Eye Catcher----- */
   .eyeCatcher1,.eyeCatcher2{
     font-size: xxx-large;
+  }
+  .offerContainer{
+    display: flex;
   }
 
 }
